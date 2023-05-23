@@ -80,6 +80,10 @@ class Materia{
 public class SolucionPoo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el nombre del estudiante: ");
+        String nombrestu = sc.next();
+        System.out.println("Ingrese la edad del estudiante: ");
+        int edad = sc.nextInt();
         System.out.println("Ingrese el numero de materias: ");
         int nmaterias = sc.nextInt();
 
@@ -96,13 +100,13 @@ public class SolucionPoo {
             materias[i] = new Materia(nombreMateria, notaACD, notaAPE, notaAA);
         }
 
-        Estudiante est1 = new Estudiante("David", 20, materias);
+        Estudiante est1 = new Estudiante("\n" + nombrestu, edad, materias);
         System.out.println(est1);
 
         for(Materia materiaAux : materias){
             materiaAux.carcularNotaTotal();
             materiaAux.calcularEstado();
-            materiaAux.setRecuperacion(materiaAux.getEstado().equals("REPROBADO") ? 3 : 0);
+            materiaAux.setRecuperacion(materiaAux.getEstado().equals("REPROBADO") ? 6 : 0);
             if (materiaAux.getEstado().equals("REPROBADO")) {
                 materiaAux.calcularRecuperacion();
                 materiaAux.calcularEstado();
